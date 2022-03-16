@@ -4,6 +4,7 @@
 
 Fullstack web platform based on node.js and mongoDB.
 
+[! rabbit api](https://github.com/aster-nikolalukic/rabbit/blob/main/astermedia.net.png)
 
 ```js
 npm i
