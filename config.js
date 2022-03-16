@@ -87,7 +87,7 @@
   get domain() {
     return  {
       dev: "localhost",
-      prod: "maximumroulette.com"
+      prod: "domain.com"
     };
   };
 
