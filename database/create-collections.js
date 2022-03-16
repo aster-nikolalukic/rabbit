@@ -18,9 +18,7 @@ class CreateDatabaseCollections {
   createCollections() {
 
     const r1 = this.createUsersCollection();
-    const r2 = this.createActiveSessions();
-
-    return r2;
+    return r1;
   }
 
   /**

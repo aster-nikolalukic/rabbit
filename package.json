@@ -4,8 +4,10 @@
   "description": "Fullstack web platform based on node.js and mongoDB.",
   "main": "index.js",
   "scripts": {
-    "api": "node rabbit.js dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev.api": "node rabbit.js localhost dev",
+    "dev.database": "mongod --dbpath data --bind_ip localhost",
+    "download.mongodb": "open -a \"Google Chrome\" https://www.mongodb.com/try/download/community || start chrome https://www.mongodb.com/try/download/community",
+    "test": "echo \"Fasten than rabbit\" && exit 1"
   },
   "repository": {
     "type": "git",

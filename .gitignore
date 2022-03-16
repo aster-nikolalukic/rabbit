@@ -1,3 +1,8 @@
+
+
+# Rabbit
+database/data/*
+
 # Logs
 logs
 *.log
