@@ -39,18 +39,15 @@ class ResponseHandler {
             rocketStatus: "bad request"
           });
         }
-        
-        
+
       } else {
 
         console.log("/rocket/register There is no exspected props in request body.");
-
         res.status(400).json({
           message: "There is no exspected props in request body.",
           rocketStatus: "bad request"
         });
         return;
-
       }
   }
  

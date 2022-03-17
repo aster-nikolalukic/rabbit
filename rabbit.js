@@ -263,11 +263,11 @@ if (config.protocol == "http") {
  */
 serverRunner.createServer(options, app).listen(config.apiPort, error => {
   if (error) {
-    console.warn("Something wrong with rocket-crafting server.");
+    console.warn("Something wrong with rabbit api server.");
     console.error(error);
     return process.exit(1);
   } else {
-    console.log("Rabbit started at " + config.apiPort + " port.");
+    console.log("RabbitApi started at " + config.apiPort + " port.");
   }
 });
 
@@ -281,10 +281,10 @@ if (config.ownHosting) {
     .createServer(options, hostingHTTP)
     .listen(config.ownHttpHostPort, err => {
       if (err) {
-        console.warn("Something wrong with rocket-craft own host server.", err);
+        console.warn("Something wrong with rabbit own host server.", err);
         return process.exit(1);
       } else {
-        console.info("Rabbit helper unsecured host started at " + config.ownHttpHostPort + " port.");
+        console.info("Rabbit host started at " + config.ownHttpHostPort + " port.");
       }
     });
 }

@@ -44,8 +44,14 @@ Running terminal connection:
 ```
 
 
-## Test API:
+## Running Rabbit Api Server
 
+```js
+npm run dev.api
+```
+
+
+## Test API:
 #### Always use chrome or any other browser console debugger for testing your api calls.
 #### Because web app works only on browsers not on `other` help tools.
 
@@ -62,7 +68,7 @@ Running terminal connection:
                                 passwordField: 'sifra123'})  } ).
    then(response => response.json()).
    then(data => console.log(data)).
-   catch(Error => console.log(Error));
+   catch(err => console.log(err));
 ```
 
 
