@@ -1,0 +1,35 @@
+{
+  "name": "Rabbit",
+  "short_name": "Rabbit",
+  "start_url": "index.html",
+  "orientation": "any",
+  "theme_color": "lime",
+  "background_color": "black",
+  "description": "The benefits of this project is offering rapid fast developing...",
+  "display": "standalone",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "icons/512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/apple-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "author": {
+      "name": "Nikola Lukic",
+      "website": "https://astermedia.net",
+      "github": "https://github.com/aster-nikolalukic/rabbit",
+      "source-repo": "https://github.com/aster-nikolalukic/rabbit"
+  }
+}

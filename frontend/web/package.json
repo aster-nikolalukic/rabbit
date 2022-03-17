@@ -1,0 +1,33 @@
+{
+  "name": "rabbit-web-client",
+  "version": "1.0.0",
+  "description": "Web Client",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build.web": "browserify app.js -p esmify > builds/app.me.js",
+    "build.all": "npm run build.web | npm run build.app",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "info": "echo \"Matrix engine writen in ECMA6. \n  Enjoy!  \n  Nikola Lukic @zlatnaspirala  \""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/"
+  },
+  "keywords": [
+    "rabbit"
+  ],
+  "author": "zlatnaspirala",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/"
+  },
+  "homepage": "https://github.com/",
+  "dependencies": {},
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "esmify": "^2.1.1"
+  }
+}

@@ -122,7 +122,7 @@ class ResponseHandler {
         });
       } else {
         res.status(300).json({
-          message: "Wrong Password",
+          message: "Wrong Password, wrong email or any other case.",
           rocketStatus: "no-session",
         });
       }

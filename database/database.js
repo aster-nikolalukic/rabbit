@@ -268,6 +268,8 @@ class MyDatabase {
                 console.warn("ONLINE: ", userData.nickname);
                 resolve(userData);
               })
+            } else {
+              resolve("BAD_EMAIL_OR_PASSWORD_OR_ANY")
             }
           })
         })

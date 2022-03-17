@@ -36,7 +36,7 @@
    * Run admin host or not.
    */
   get hostAdminPanel() {
-    return true;
+    return false;
   }
 
   /**
@@ -49,12 +49,20 @@
 
   /**
    * @description
+   * Run web app host www root folder.
+   */
+  get ownHostWWWfolder() {
+    return "/frontend/web";
+  }
+
+  /**
+   * @description
    * If you want to use api with hosting,
    * You can integrate any web folders contents.
    */
   get hostSpecialRoute() {
     return {
-      active: true,
+      active: false,
       route: "/var/www/html/PATH_TO_WWW",
       webAppName: "RABBIT ADMIN PANEL",
       type: "admin",
@@ -69,8 +77,18 @@
    * [80, 443] to avoid cors and other problems.
    */
   get ownHttpHostPort() {
-    return 443;
+    return 80;
   }
+
+  /**
+   * @description
+   * Keep it simple,
+   * It is recommended to use standard ports.
+   * [80, 443] to avoid cors and other problems.
+   */
+  get apiPort() {
+    return 8080;
+}
 
   /**
    * @description
