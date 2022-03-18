@@ -19,6 +19,8 @@ and select best fix installer for your system. Install it on yor system.
 
 ### 3) Setup database:
 
+
+[If you already have running mongoDB services no need fot this line]
 Running `MongoDB`:
 ```bash
 mongod --dbpath database/data --bind_ip <DOMAIN>
@@ -32,6 +34,7 @@ Running terminal connection:
 
 ### For localhost no need port specification.
 
+[If you already have running mongoDB services no need fot this line]
 Running `MongoDB`:
 ```
 mongod --dbpath data --bind_ip localhost
@@ -43,12 +46,36 @@ Running terminal connection:
   mongo --host localhost
 ```
 
+If everything is allright after command `mongo --host localhost`
+you will be promted to the `MongoDB shell version v4.4.2`
+ Then run this:
+```bash
+ show dbs
+```
+
+#### Output will be:
+```
+> show dbs
+admin         0.000GB
+config        0.000GB
+local         0.000GB
+rabbit-base1  0.000GB
+```
+
+It means your mongo server is ready for operate.
+
 
 ## Running Rabbit Api Server
 
 ```js
 npm run dev.api
 ```
+
+After this command by default you run RabbitAPI also own Host server on default port 80 [http].
+
+In folder `frontend\web` you can find web client part.For this web client part no need for builds in dev regime.
+Only for final production you will need to run 
+
 
 
 ## Test API:

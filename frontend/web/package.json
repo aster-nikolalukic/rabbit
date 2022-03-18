@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "build.web": "browserify app.js -p esmify > builds/app.me.js",
+    "build.web": "browserify app.js -p esmify > builds/app.pack.js",
     "build.all": "npm run build.web | npm run build.app",
     "test": "echo \"Error: no test specified\" && exit 1",
     "info": "echo \"Matrix engine writen in ECMA6. \n  Enjoy!  \n  Nikola Lukic @zlatnaspirala  \""
