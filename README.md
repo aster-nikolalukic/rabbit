@@ -88,7 +88,7 @@ Only for final production you will need to run
 - ### Login:
 
 ```js
-  fetch("http://localhost:8080/rocket/login/", { method: 'POST', headers: {
+  fetch("http://localhost:8080/rabbit/login/", { method: 'POST', headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },  body: JSON.stringify( { emailField: "zlatnaspirala@gmail.com",

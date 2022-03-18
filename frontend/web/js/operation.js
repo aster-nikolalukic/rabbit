@@ -48,7 +48,7 @@ export function loginUser(e) {
 
     let localMsg = {action: "LOGIN", data: {userLoginData: userData}};
     callApi("/rabbit/login/", localMsg, (e) => {
-      console.log('WHAT -------', e)
+      console.log('WHAT IS THE RESPONSE -> ', e)
     });
     localMsg = null;
 

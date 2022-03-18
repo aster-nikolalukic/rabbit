@@ -13,14 +13,12 @@ export function showLoginForm() {
     then((res) => {
       return res.text();
     }).then((html) => {
-      console.log("what i s" , myInstance)
       myInstance.root.innerHTML = html;
       byId("login-button").addEventListener("click", myInstance.loginUser, false);
       byId("sing-up-tab").addEventListener("click", myInstance.showRegisterForm, false);
-      console.log("what i s" , myInstance)
-      //  byId("error-msg-reg").innerHTML = data.data.text;
     }).catch(function(err) {
       console.warn("Error in showLoginForm : ", err);
+      byId("error-msg-reg").innerHTML = err;
     });
 }
 
@@ -35,8 +33,8 @@ export function showRegisterForm() {
       myInstance.root.innerHTML = html;
       byId("login-button").addEventListener("click", myInstance.loginUser, false);
       byId("sing-up-tab").addEventListener("click", myInstance.showRegisterForm, false);
-      //  byId("error-msg-reg").innerHTML = data.data.text;
     }).catch(function(err) {
       console.warn("Error in showLoginForm : ", err);
+      byId("error-msg-reg").innerHTML = err;
     });
 }
