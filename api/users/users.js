@@ -2,13 +2,13 @@
 const ResponseHandler = require("./users-handler")
 
 /**
- * @description Class RocketRoute
+ * @description Class RabbitRouteGetUsers
  * is place for definition of route jobs
  * also ResponseHandler comes in same folder
  * with one route api collections egg.
  * `api/account`.
  */
-class RocketRouteGetUsers extends ResponseHandler {
+class RabbitRouteGetUsers extends ResponseHandler {
 
   /**
    * @description 
@@ -28,11 +28,11 @@ class RocketRouteGetUsers extends ResponseHandler {
 
   routeRegister() {
 
-    this.app.post("/rocket/users", this.getUsersResponse.bind(this));
-    console.log("RocketRouteGetUsers loaded with success.");
+    this.app.post("/rabbit/users", this.getUsersResponse.bind(this));
+    console.log("RabbitRouteGetUsers loaded with success.");
 
   }
 
 }
 
-module.exports = (app, express, dataAction, crypto) => { return new RocketRouteGetUsers(app, express, dataAction, crypto) }
+module.exports = (app, express, dataAction, crypto) => { return new RabbitRouteGetUsers(app, express, dataAction, crypto) }

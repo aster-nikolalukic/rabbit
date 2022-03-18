@@ -141,7 +141,7 @@ class ResponseHandler {
     };
 
     var responseFlag = await this.dataAction.forgotPass(user, this);
-    console.log("/rocket/forgotPass responseFlag ", responseFlag);
+    console.log("/rabbit/forgotPass responseFlag ", responseFlag);
 
     if (responseFlag.status == "FTOKEN CREATED") {
       let emailFPassBody =
@@ -191,12 +191,12 @@ class ResponseHandler {
     };
 
     var responseFlag = await this.dataAction.setNewPass(user, this);
-    // console.log("/rocket/forgotPass responseFlag ", responseFlag);
+    // console.log("/rabbit/forgotPass responseFlag ", responseFlag);
     if (responseFlag.status == "NEW-PASS-DONE") {
       console.log("NEW PASS DONE");
         console.log("NICE NICE");
         res.status(200).json({
-          message: "You setup new password for your rocket craft account.",
+          message: "You setup new password for your [rabbit] account.",
           rocketStatus: "NEW_PASSWORD_DONE",
           accessToken: responseFlag.email,
         });

@@ -18,7 +18,7 @@ class ResponseHandler {
       };
       
       var responseFlag = await this.dataOptions.database.setNewNickname(user)
-      console.log("/rocket/profile/newNickname", responseFlag.status);
+      console.log("/rabbit/profile/newNickname", responseFlag.status);
       if (responseFlag.status == "NICKNAME_CHANGED") {
         res.status(200).json({
           message: "new nickname !",
@@ -32,7 +32,7 @@ class ResponseHandler {
       }
       
     } else {
-      console.log("/rocket/profile/newNickname There is no exspected props in request body.");
+      console.log("/rabbit/profile/newNickname There is no exspected props in request body.");
       res.status(400).json({
         message: "There is no exspected props in request body.",
         rocketStatus: "Bad request"
@@ -53,7 +53,7 @@ class ResponseHandler {
         };
         
         var responseFlag = await action.getUserProfile(user, this.dataOptions)
-        console.log("/rocket/profile", responseFlag.status);
+        console.log("/rabbit/profile", responseFlag.status);
         if (responseFlag.status == "AUTHORIZED") {
           res.status(200).json({
             message: "Welcome to your profile dashboard",
@@ -68,7 +68,7 @@ class ResponseHandler {
         }
         
       } else {
-        console.log("/rocket/register There is no exspected props in request body.");
+        console.log("/rabbit/register There is no exspected props in request body.");
         res.status(400).json({
           message: "There is no exspected props in request body.",
           rocketStatus: "Bad request"

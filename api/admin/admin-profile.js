@@ -2,14 +2,14 @@
 const ResponseHandler = require("./admin-profile-handler");
 
 /**
- * @description Class alias RocketRoute
- * RocketRouteProfileAdmin
+ * @description Class alias RabbitRouteProfileAdmin
+ * RabbitRouteProfileAdmin
  * is place for definition of route jobs
  * also ResponseHandler comes in same folder
  * with one route api collections egg.
  * `rocket/profile-delete`.
  */
-class RocketRouteProfileAdmin extends ResponseHandler {
+class RabbitRouteProfileAdmin extends ResponseHandler {
 
   /**
    * @description
@@ -29,11 +29,11 @@ class RocketRouteProfileAdmin extends ResponseHandler {
 
   routeRegister() {
     // Only admin permission
-    this.app.post("/rocket/profile-delete", this.ProfileDeleteResponse.bind(this));
-    // this.app.post("/rocket/profile-ban", this.ProfileDeleteResponse.bind(this));
-    console.log("RocketRouteProfileAdmin loaded with success.");
+    this.app.post("/rabbit/profile-delete", this.ProfileDeleteResponse.bind(this));
+    // this.app.post("/rabbit/profile-ban", this.ProfileDeleteResponse.bind(this));
+    console.log("RabbitRouteProfileAdmin loaded with success.");
   }
 
 }
 
-module.exports = (app, express, dataOptions, crypto) => { return new RocketRouteProfileAdmin(app, express, dataOptions, crypto) }
+module.exports = (app, express, dataOptions, crypto) => { return new RabbitRouteProfileAdmin(app, express, dataOptions, crypto) }

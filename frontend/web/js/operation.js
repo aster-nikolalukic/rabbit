@@ -47,7 +47,7 @@ export function loginUser(e) {
     };
 
     let localMsg = {action: "LOGIN", data: {userLoginData: userData}};
-    callApi("/rocket/login/", localMsg, (e) => {
+    callApi("/rabbit/login/", localMsg, (e) => {
       console.log('WHAT -------', e)
     });
     localMsg = null;

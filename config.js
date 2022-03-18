@@ -49,6 +49,16 @@
 
   /**
    * @description
+   * Keep it simple,
+   * It is recommended to use standard ports.
+   * [80, 443] to avoid cors and other problems.
+   */
+    get ownHttpHostPort() {
+    return 80;
+  }
+
+  /**
+   * @description
    * Run web app host www root folder.
    */
   get ownHostWWWfolder() {
@@ -57,7 +67,7 @@
 
   /**
    * @description
-   * If you want to use api with hosting,
+   * If you want to use api server with extra hosting,
    * You can integrate any web folders contents.
    */
   get hostSpecialRoute() {
@@ -68,16 +78,6 @@
       type: "admin",
       unsecured: true,
     }
-  }
-
-  /**
-   * @description
-   * Keep it simple,
-   * It is recommended to use standard ports.
-   * [80, 443] to avoid cors and other problems.
-   */
-  get ownHttpHostPort() {
-    return 80;
   }
 
   /**
@@ -149,7 +149,7 @@
    */
   get systemEmail() {
     return {
-      user: "YOUR@gmail.com",
+      address: "YOUR@gmail.com",
       pass: "********"
     };
   };

@@ -2,13 +2,13 @@
 const ResponseHandler = require("./profile-handler")
 
 /**
- * @description Class RocketRoute
+ * @description Class RabbitRouteProfile
  * is place for definition of route jobs
  * also ResponseHandler comes in same folder
  * with one route api collections egg.
  * `api/account`.
  */
-class RocketRouteProfile extends ResponseHandler {
+class RabbitRouteProfile extends ResponseHandler {
 
   /**
    * @description 
@@ -28,12 +28,12 @@ class RocketRouteProfile extends ResponseHandler {
 
   routeRegister() {
 
-    this.app.post("/rocket/profile", this.getProfileResponse.bind(this));
-    this.app.post("/rocket/profile/newNickname", this.profileNewNickname.bind(this));
+    this.app.post("/rabbit/profile", this.getProfileResponse.bind(this));
+    this.app.post("/rabbit/profile/newNickname", this.profileNewNickname.bind(this));
     console.log("getProfileResponse loaded with success.");
 
   }
 
 }
 
-module.exports = (app, express, dataOptions, crypto) => { return new RocketRouteProfile(app, express, dataOptions, crypto) }
+module.exports = (app, express, dataOptions, crypto) => { return new RabbitRouteProfile(app, express, dataOptions, crypto) }

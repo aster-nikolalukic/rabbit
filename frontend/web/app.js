@@ -21,12 +21,16 @@ export let App = {
   loginUser: loginUser,
 };
 
-console.log("Try to create rabbit element -> Now ->");
 
+///////////////////////////////////////////
+// This is just aprooach with genessis js
+///////////////////////////////////////////
+
+console.log("Try to create rabbit element -> Now ->");
 
 var objekat = null;
   var options = {
-    content: "Login",
+    content: "Show Login Form",
     position: { x: 45 , y : 25 },
     bgColor: 'black',
     color: 'lime',

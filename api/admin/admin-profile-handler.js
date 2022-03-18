@@ -10,7 +10,7 @@ class ResponseHandler {
 
   async ProfileDeleteResponse(req, res) {
 
-      console.log("/rocket/profile-delete", req.body);
+      console.log("/rabbit/profile-delete", req.body);
       if (typeof req.body.token !== 'undefined') {
         var user = {
           token: req.body.token,
@@ -18,7 +18,7 @@ class ResponseHandler {
           deleteUserId: req.body.deleteUserId
         };
         var responseFlag = await action.deleteUserProfile(user, this.dataOptions)
-        console.log("/rocket/profile-delete STATUS", responseFlag.status);
+        console.log("/rabbit/profile-delete STATUS", responseFlag.status);
         if (responseFlag.status == "AUTHORIZED") {
           res.status(200).json({
             message: "User profile deleted",
@@ -32,7 +32,7 @@ class ResponseHandler {
           });
         }
       } else {
-        console.log("/rocket/register There is no exspected props in request body.");
+        console.log("/rabbit/register There is no exspected props in request body.");
         res.status(400).json({
           message: "There is no exspected props in request body.",
           rocketStatus: "Bad request"
