@@ -53,13 +53,31 @@ you will be promted to the `MongoDB shell version v4.4.2`
  show dbs
 ```
 
-#### Output will be:
+#### Output:
 ```
 > show dbs
 admin         0.000GB
 config        0.000GB
 local         0.000GB
 rabbit-base1  0.000GB
+```
+
+```
+use rabbit-base1
+```
+
+#### Output:
+```
+switched to db rabbit-base1
+```
+
+And let list out users: 
+```
+db.users.find({})
+
+or use filters:
+
+db.users.find({email:'zlatnaspirala@gmail.com'})
 ```
 
 It means your mongo server is ready for operate.
@@ -113,13 +131,16 @@ Only for final production you will need to run
 
 ### Web Client [frontend]
 
-   Project Stored at `frontend\web`.
+Project Stored at `frontend\web`.
 
-   ```
-   npm i
-   ```
+```
+npm i
+```
 
-   ```
-   npm run build.web
-   ```
+This only build package for production.
+[No need for dev]
+```
+npm run build.web
+```
 
+### Performance 
