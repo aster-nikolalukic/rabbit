@@ -71,6 +71,7 @@ It means your mongo server is ready for operate.
 
  To get visual database preview!
 
+![](https://github.com/aster-nikolalukic/rabbit/blob/main/documentation/compassHelp.jpg)
 
 ## Running Rabbit Api Server
 
