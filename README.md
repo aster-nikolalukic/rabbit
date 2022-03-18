@@ -144,3 +144,5 @@ npm run build.web
 ```
 
 ### Performance 
+
+![](https://github.com/aster-nikolalukic/rabbit/blob/main/documentation/perf-mart2022.png)
