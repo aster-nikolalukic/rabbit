@@ -1,25 +1,32 @@
 
-
-
 import { rabbitElement } from './js/genesis.js';
-console.log("NICE");
+import { 
+  showLoginForm,
+  showRegisterForm
+ } from './js/loader.js';
+ import { loginUser } from './js/operation.js';
+
+export let App = {
+
+  name: 'Test rabbit run',
+  version: '0.0.1',
+
+  config: {
+    apiDomain: 'http://localhost:8080'
+  },
+
+  root: document.getElementById('root'),
+  showLoginForm: showLoginForm,
+  showRegisterForm: showRegisterForm,
+  loginUser: loginUser,
+};
+
 console.log("Try to create rabbit element -> Now ->");
 
 
-/**
- * Vanilla js
- */
-
-// Mora van {} ako zelimo global access kroz console
 var objekat = null;
-
-window.onload = function() {
-
-  // objekat je instanca klase myElement
-
   var options = {
-    // name: 'MojElement', // uniq
-    content: "ja sam dugme",
+    content: "Login",
     position: { x: 45 , y : 25 },
     bgColor: 'black',
     color: 'lime',
@@ -27,8 +34,9 @@ window.onload = function() {
     dimension: { width: 15 , height: 15 },
   };
 
-  var testClick = function() {
-    alert("COOL MAN")
+  var testClick = function(e) {
+    console.log("COOL MAN, event - ", e)
+    console.log("COOL MAN, App  - ", App.showLoginForm() )
   };
 
   objekat = new rabbitElement(options, testClick);
@@ -52,26 +60,8 @@ window.onload = function() {
       elementsInBox.push(new myElement(optionsBox));
     }
   }
+  // setTimeout(function() {
+    //objekat.position.translateByX(50);
+    //objekat.position.translateByY(50);
+  // }, 2000);
   */
-
-
-
-  /** Kad prebacis nesto na `this.`
-   *  onda je to postao property te klase i lako mozes pristupiti
-   *  na sledeci nacin.
-   */
-   // console.log("Access objekt => ", objekat.dom.innerHTML)
-
-
-  /**
-   * I na kraju manipulacija
-   */
-  setTimeout(function() {
-    objekat.position.translateByX(50)
-    objekat.position.translateByY(50)
-  }, 2000)
-
-}
-
-
-
