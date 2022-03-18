@@ -64,6 +64,13 @@ rabbit-base1  0.000GB
 
 It means your mongo server is ready for operate.
 
+## Optimal but great to have
+
+ Download Compass GUI:
+ https://www.mongodb.com/try/download/compass
+
+ To get visual database preview!
+
 
 ## Running Rabbit Api Server
 

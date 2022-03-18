@@ -2,6 +2,10 @@
 import { App } from '../app.js';
 import { validateEmail, validatePassword, byId } from './utils.js';
 
+/**
+ * @description
+ * Used in this [class] file only for now.
+ */
 function callApi(apiRoute, data, callback) {
 
   fetch(App.config.apiDomain + apiRoute, { method: 'POST', headers: {
@@ -53,4 +57,38 @@ export function loginUser(e) {
     localMsg = null;
 
   }
+}
+
+export function registerUser(e) {
+
+  e.preventDefault();
+
+  const localEmail = byId("reg-user").value;
+  const localPassword = byId("reg-pass").value;
+
+  if (validateEmail(localEmail) !== null) {
+    byId("error-msg-reg").style.display = "block";
+    byId("error-msg-reg").innerText = validateEmail(localEmail);
+  }
+
+  if (validatePassword(localPassword) === false) {
+    byId("error-msg-reg").style.display = "block";
+    byId("error-msg-reg").innerText = "Password is not valid! length!";
+  }
+
+  if (validateEmail(localEmail) === null && validatePassword(localPassword) === true) {
+
+    const userData= {
+      email: localEmail,
+      password: localPassword,
+    };
+
+    let localMsg = { action: "REGISTER", data: { userRegData: userData } };
+    callApi("/rabbit/register/", localMsg, (e) => {
+      console.log('register/ RESPONSE => ', e)
+    });
+    localMsg = null;
+
+  }
+
 }

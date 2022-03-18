@@ -1,5 +1,5 @@
 
-import config from '../config';
+// let config = require('../config');
 
 /**
  * This class use shared lib.
@@ -12,20 +12,21 @@ const shared = require("./../common/shared");
  */
 class Sender {
 
-  constructor(to, subject, content) {
+  constructor(to, subject, content, config) {
 
     this.userId = shared.formatUserKeyLiteral(to);
     this.subject = subject;
     this.to = to;
     this.content = content;
+    this.config = config;
 
   }
 
   async SEND(subject) {
 
     let arg = {
-      user: config.systemEmail().address,
-      pass: config.systemEmail().pass,
+      user: this.config.systemEmail.address,
+      pass: this.config.systemEmail.pass,
       to: this.to,
       subject: this.subject,
       html: this.content
@@ -45,4 +46,4 @@ class Sender {
   }
 
 }
-module.exports = (to, subject, content) => { return new Sender(to, subject, content) }
+module.exports = (to, subject, content, config) => { return new Sender(to, subject, content, config) }

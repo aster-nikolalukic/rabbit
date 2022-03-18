@@ -16,7 +16,7 @@ class RabbitAccountRoute extends ResponseHandler {
    */
   constructor(app, express, dataAction, crypto) {
 
-    super(crypto);
+    super(crypto, dataAction.config);
 
     this.app = app;
     this.express = express;

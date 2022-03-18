@@ -120,9 +120,7 @@ class MyDatabase {
                   if(err) {console.log("MyDatabase err3:" + err);return;}
                   var responseFromDatabaseEngine = {
                     status: "USER_REGISTERED",
-                    email: res.ops[0].email,
-                    token: res.ops[0].token,
-                    socketid: res.ops[0].socketid,
+                    email: user.email,
                   };
                   db.close();
                   resolve(responseFromDatabaseEngine);

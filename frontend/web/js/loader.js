@@ -31,7 +31,7 @@ export function showRegisterForm() {
       return res.text();
     }).then(function(html) {
       myInstance.root.innerHTML = html;
-      byId("login-button").addEventListener("click", myInstance.loginUser, false);
+      byId("reg-button").addEventListener("click", myInstance.registerUser, false);
       byId("sing-up-tab").addEventListener("click", myInstance.showRegisterForm, false);
     }).catch(function(err) {
       console.warn("Error in showLoginForm : ", err);

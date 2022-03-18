@@ -1,17 +1,18 @@
 class ResponseHandler {
-  constructor(crypto) {
+  constructor(crypto, config) {
     this.crypto = crypto;
+    this.config = config;
   }
 
   async onRegisterResponse(req, res) {
     console.log("/rocket/register ", req.body.emailField);
     if (
-      (typeof req.body.emailField !== "undefined") &
-      (typeof req.body.passwordField !== "undefined")
+      (typeof req.body.data.userRegData.email !== "undefined") &
+      (typeof req.body.data.userRegData.password !== "undefined")
     ) {
       var user = {
-        email: req.body.emailField,
-        password: req.body.passwordField,
+        email: req.body.data.userRegData.email,
+        password: req.body.data.userRegData.password,
       };
 
       // check email validation
@@ -36,7 +37,8 @@ class ResponseHandler {
           emailConnection = require("./../../email/mail-service")(
             responseFlag.email,
             responseFlag.status,
-            contentRegBody
+            contentRegBody,
+            this.config
           ).SEND(responseFlag.email);
         } catch (error) {
           console.warn("Connector error in sending reg email!", error);
@@ -151,7 +153,8 @@ class ResponseHandler {
       var emailConnection = require("./../../email/mail-service")(
         responseFlag.email,
         responseFlag.status,
-        contentRegBody
+        contentRegBody,
+        this.config
       ).SEND(responseFlag.email);
 
       emailConnection.then(checkEmailService => {
