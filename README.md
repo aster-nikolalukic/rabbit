@@ -97,6 +97,16 @@ It means your mongo server is ready for operate.
 npm run dev.api
 ```
 
+
+Use debbuger:
+![](https://github.com/aster-nikolalukic/rabbit/blob/main/documentation/nodejsDebugger.jpg)
+
+Then run your Rabbit Api:
+```js
+npm run dev.api
+```
+
+
 After this command by default you run RabbitAPI also own Host server on default port 80 [http].
 
 In folder `frontend\web` you can find web client part.For this web client part no need for builds in dev regime.

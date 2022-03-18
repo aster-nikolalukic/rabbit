@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev.api": "node rabbit.js localhost dev",
-    "dev.database": "mongod --dbpath data --bind_ip localhost",
+    "dev.database": "mongod --dbpath database/data --bind_ip localhost",
     "download.mongodb": "open -a \"Google Chrome\" https://www.mongodb.com/try/download/community || start chrome https://www.mongodb.com/try/download/community",
     "test": "echo \"Fasten than rabbit\" && exit 1"
   },
