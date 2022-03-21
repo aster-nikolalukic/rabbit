@@ -19,7 +19,7 @@ class MyDatabase {
     const CreateDatabaseCollections = require("./create-collections");
     var databasePopulate = new CreateDatabaseCollections(this.config);
     var r = await databasePopulate.createCollections();
-    console.log("Database startup migrate -> ", r);
+    console.log("Database create collections -> ", r);
   }
 
   async seedDatabase(numOfFakeUsers) {
@@ -44,7 +44,7 @@ class MyDatabase {
         function(error, db) {
           if(error) {
             console.warn("MyDatabase: err1:" + error);
-            resolve("SOMETHING_WRONG_WITH_REGISTRATION");
+            resolve("SOMETHING_WRONG_WITH_checkInitiallyDatabaseSizeInternal");
             return;
           }
           const dbo = db.db(databaseName);
@@ -210,16 +210,9 @@ class MyDatabase {
 
     return new Promise((resolve) => {
       MongoClient.connect(
-        this.config.getDatabaseRoot,
-        {
-          useNewUrlParser: true,
-          useUnifiedTopology: true
-        },
+        this.config.getDatabaseRoot, { useNewUrlParser: true, useUnifiedTopology: true },
         function(error, db) {
-          if(error) {
-            console.warn("MyDatabase.login error: " + error);
-            return;
-          }
+          if(error) { console.warn("MyDatabase.login error: " + error); return; }
 
           const dbo = db.db(databaseName);
 

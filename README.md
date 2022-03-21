@@ -19,6 +19,11 @@ and select best fix installer for your system. Install it on yor system.
 
 ### 3) Setup database:
 
+Now relunch visual studio code or terminal what ever you use for running commands
+(to make env variable accessible in terminal).
+
+Test connection with database service (`mongod`) with: `mongo --host localhost` if you got 
+something like `MongoDB shell version v4.4.2` means you database service is running at the moment.
 
 [If you already have running mongoDB services no need fot this line]
 Running `MongoDB`:
@@ -38,7 +43,10 @@ Running terminal connection:
 Running `MongoDB`:
 ```
 mongod --dbpath data --bind_ip localhost
+// or
+npm run dev.database
 ```
+
 
 Running terminal connection:
 [optimal] If you wanna see it. Attach to mongoDB service.
@@ -47,8 +55,11 @@ Running terminal connection:
 ```
 
 If everything is allright after command `mongo --host localhost`
-you will be promted to the `MongoDB shell version v4.4.2`
- Then run this:
+you will be promted to the `MongoDB shell version v4.4.2`.
+
+After first run `rabbit api server` [npm run dev.api] database will be self created.
+
+Then run this:
 ```bash
  show dbs
 ```
@@ -70,6 +81,7 @@ use rabbit-base1
 ```
 switched to db rabbit-base1
 ```
+
 
 And let list out users: 
 ```
@@ -93,12 +105,13 @@ It means your mongo server is ready for operate.
 
 ## Running Rabbit Api Server
 
+Regular running:
 ```js
 npm run dev.api
 ```
 
-
-Use debbuger:
+Don't use only `console.log`, i always use debbuger for client or server part.
+Running with debbuger with Visual Code:
 ![](https://github.com/aster-nikolalukic/rabbit/blob/main/documentation/nodejsDebugger.jpg)
 
 Then run your Rabbit Api:
@@ -110,7 +123,7 @@ npm run dev.api
 After this command by default you run RabbitAPI also own Host server on default port 80 [http].
 
 In folder `frontend\web` you can find web client part.For this web client part no need for builds in dev regime.
-Only for final production you will need to run 
+Only for final production you will need to run build command.
 
 
 
@@ -137,22 +150,28 @@ Only for final production you will need to run
 
 ## Frontend
 
-### Comming in different solution vanillajs, vue, reactjs.
+### Comming in different solution vanillajs, vue-typescript, reactjs.
 
 ### Web Client [frontend]
 
 Project Stored at `frontend\web`.
+Run all commands from `frontend\web`.
 
+Prepare node modules deps.
 ```
 npm i
 ```
 
+This is classic html/js/css vanillaJS there is no builds.
 This only build package for production.
 [No need for dev]
 ```
 npm run build.web
 ```
 
-### Performance 
+### Performance
+
+ Like always try to keep it more then 95%.
+ Current performance: 100%
 
 ![](https://github.com/aster-nikolalukic/rabbit/blob/main/documentation/perf-mart2022.png)

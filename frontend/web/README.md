@@ -2,9 +2,9 @@
 
 No need for build when you work ion localhost.
 
-No need for hosting if you use default rabbit api config : 
+No need for hosting if you use default rabbit api config:
 
-```
+```js
   /**
    * @description
    * Run web app host or not.
@@ -22,6 +22,5 @@ No need for hosting if you use default rabbit api config :
     get ownHttpHostPort() {
     return 80;
   }
-
 ```
 

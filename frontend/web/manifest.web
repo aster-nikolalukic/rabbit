@@ -1,11 +1,11 @@
 {
-  "name": "Rabbit",
-  "short_name": "Rabbit",
+  "name": "rabbit-webclient",
+  "short_name": "rabbit-webclietn",
   "start_url": "index.html",
   "orientation": "any",
   "theme_color": "lime",
   "background_color": "black",
-  "description": "The benefits of this project is offering rapid fast developing...",
+  "description": "The benefits of this project is offering rapid fast developing like never before.Basic session account staff are buildin intro database.js.",
   "display": "standalone",
   "lang": "en-US",
   "icons": [

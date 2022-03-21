@@ -88,7 +88,7 @@
    */
   get apiPort() {
     return 8080;
-}
+  }
 
   /**
    * @description

@@ -17,8 +17,8 @@
     "power",
     "node.js"
   ],
-  "author": "Nikola Lukic",
-  "license": "ISC",
+  "author": "Nikola Lukic https://astermedia.net 2022 mart",
+  "license": "GPLv3",
   "bugs": {
     "url": "https://github.com/aster-nikolalukic/rabbit/issues"
   },
