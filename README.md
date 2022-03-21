@@ -143,7 +143,7 @@ Only for final production you will need to run build command.
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },  body: JSON.stringify( { emailField: "zlatnaspirala@gmail.com",
-                                passwordField: 'sifra123'})  } ).
+                                passwordField: '123123123'})  } ).
    then(response => response.json()).
    then(data => console.log(data)).
    catch(err => console.log(err));
