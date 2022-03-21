@@ -22,20 +22,20 @@ class ResponseHandler {
         if (responseFlag.status == "AUTHORIZED") {
           res.status(200).json({
             message: "User profile deleted",
-            rocketStatus: responseFlag.status,
+            rabbitStatus: responseFlag.status,
             user: responseFlag.user
           });
         } else {
           res.status(401).json({
             message: "NO AUTHORIZED",
-            rocketStatus: "Very bad request"
+            rabbitStatus: "Very bad request"
           });
         }
       } else {
         console.log("/rabbit/register There is no exspected props in request body.");
         res.status(400).json({
           message: "There is no exspected props in request body.",
-          rocketStatus: "Bad request"
+          rabbitStatus: "Bad request"
         });
         return;
       }

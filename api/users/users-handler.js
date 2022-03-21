@@ -23,20 +23,20 @@ class ResponseHandler {
       if(responseFlag.status == "AUTHORIZED") {
         res.status(200).json({
           message: "get users response",
-          rocketStatus: responseFlag.status,
+          rabbitStatus: responseFlag.status,
           users: responseFlag.users
         });
       } else {
         res.status(400).json({
           message: "NO AUTHORIZED",
-          rocketStatus: "bad request"
+          rabbitStatus: "bad request"
         });
       }
     } else {
 
       res.status(401).json({
         message: "There is no exspected props in request body.",
-        rocketStatus: "bad request"
+        rabbitStatus: "bad request"
       });
       return;
     }

@@ -425,13 +425,13 @@ function loginUser(e) {
   const localPassword = (0, _utils.byId)("login-pass").value;
 
   if ((0, _utils.validateEmail)(localEmail) !== null) {
-    (0, _utils.byId)("error-msg-login").style.display = "block";
-    (0, _utils.byId)("error-msg-login").innerText = (0, _utils.validateEmail)(localEmail);
+    (0, _utils.byId)("error-msg").style.display = "block";
+    (0, _utils.byId)("error-msg").innerText = (0, _utils.validateEmail)(localEmail);
   }
 
   if ((0, _utils.validatePassword)(localPassword) === false) {
-    (0, _utils.byId)("error-msg-login").style.display = "block";
-    (0, _utils.byId)("error-msg-login").innerText += "Password is not valid! length!";
+    (0, _utils.byId)("error-msg").style.display = "block";
+    (0, _utils.byId)("error-msg").innerText += "Password is not valid! length!";
   }
 
   if ((0, _utils.validateEmail)(localEmail) === null && (0, _utils.validatePassword)(localPassword) === true) {

@@ -1,7 +1,7 @@
 
 import { App } from '../app.js';
 import { validateEmail, validatePassword, byId } from './utils.js';
-
+import { onUserConfirmed, userRegisterConfirmation } from './responseHandler.js';
 /**
  * @description
  * Used in this [class] file only for now.
@@ -34,13 +34,13 @@ export function loginUser(e) {
   const localPassword = byId("login-pass").value;
 
   if(validateEmail(localEmail) !== null) {
-    byId("error-msg-login").style.display = "block";
-    byId("error-msg-login").innerText = validateEmail(localEmail);
+    byId("error-msg").style.display = "block";
+    byId("error-msg").innerText = validateEmail(localEmail);
   }
 
   if(validatePassword(localPassword) === false) {
-    byId("error-msg-login").style.display = "block";
-    byId("error-msg-login").innerText += "Password is not valid! length!";
+    byId("error-msg").style.display = "block";
+    byId("error-msg").innerText += "Password is not valid! length!";
   }
 
   if(validateEmail(localEmail) === null && validatePassword(localPassword) === true) {
@@ -67,13 +67,13 @@ export function registerUser(e) {
   const localPassword = byId("reg-pass").value;
 
   if (validateEmail(localEmail) !== null) {
-    byId("error-msg-reg").style.display = "block";
-    byId("error-msg-reg").innerText = validateEmail(localEmail);
+    byId("error-msg").style.display = "block";
+    byId("error-msg").innerText = validateEmail(localEmail);
   }
 
   if (validatePassword(localPassword) === false) {
-    byId("error-msg-reg").style.display = "block";
-    byId("error-msg-reg").innerText = "Password is not valid! length!";
+    byId("error-msg").style.display = "block";
+    byId("error-msg").innerText =+ "Password is not valid! length!";
   }
 
   if (validateEmail(localEmail) === null && validatePassword(localPassword) === true) {
@@ -86,9 +86,36 @@ export function registerUser(e) {
     let localMsg = { action: "REGISTER", data: { userRegData: userData } };
     callApi("/rabbit/register/", localMsg, (e) => {
       console.log('register/ RESPONSE => ', e)
+      userRegisterConfirmation(e, this);
     });
-    localMsg = null;
 
   }
 
+}
+
+export function confirmRegistration(e) {
+
+  e.preventDefault();
+
+  const localEmail = byId("reg-user").value;
+  const localPassword = byId("reg-pass").value;
+
+  if (validateEmail(localEmail) !== null) {
+    byId("error-msg").style.display = "block";
+    byId("error-msg").innerText = validateEmail(localEmail);
+  }
+
+  if (validateEmail(localEmail) === null) {
+
+    const userData= {
+      email: localEmail,
+      code: localPassword,
+    };
+
+    let localMsg = { action: "REGISTER-CONFIRMATION", data: { userRegData: userData } };
+    callApi("/rabbit/confirmation", localMsg, (e) => {
+      console.log('/rabbit/confirmation/ RESPONSE => ', e)
+      onUserConfirmed(e);
+    });
+  }
 }

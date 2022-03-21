@@ -6,7 +6,8 @@ import {
 } from './js/loader.js';
 import {
   loginUser,
-  registerUser
+  registerUser,
+  confirmRegistration
 } from './js/operation.js';
 
 export let App = {
@@ -23,32 +24,26 @@ export let App = {
   showRegisterForm: showRegisterForm,
   loginUser: loginUser,
   registerUser: registerUser,
+  confirmRegistration: confirmRegistration
 };
-
 
 ///////////////////////////////////////////
 // This is just aprooach with genessis js
+// creating html dom elements from code.
 ///////////////////////////////////////////
-
 console.log("Try to create rabbit element -> Now ->");
 
-
 var options = {
-  content: "Show Login Form",
+  content: "<div class='centeredAbs' >Login Form</div>",
   position: {x: 45, y: 25},
-  bgColor: 'black',
-  color: 'lime',
-  border: 'solid lime 1px',
-  dimension: {width: 15, height: 15},
-};
-
-var showLoginFormBtn = function(e) {
-  App.showLoginForm();
+  bgColor: 'var(--primary)',
+  color: 'var(--therme)',
+  border: 'solid var(--therme) 1px',
+  dimension: {width: 15, height: 5},
 };
 
 let showLoginFormDom = new rabbitElement(options, () => App.showLoginForm());
 
-
+options.content = "Register form";
 options.position.y = 35;
 let showRegisterFormDom = new rabbitElement(options, () => App.showRegisterForm() );
-

@@ -90,6 +90,8 @@ db.users.find({})
 or use filters:
 
 db.users.find({email:'zlatnaspirala@gmail.com'})
+
+db.users.remove({email: 'zlatnaspirala@gmail.com'})
 ```
 
 It means your mongo server is ready for operate.

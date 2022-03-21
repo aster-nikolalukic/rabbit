@@ -22,12 +22,12 @@ class ResponseHandler {
       if (responseFlag.status == "NICKNAME_CHANGED") {
         res.status(200).json({
           message: "new nickname !",
-          rocketStatus: responseFlag.status,
+          rabbitStatus: responseFlag.status,
         });
       } else {
         res.status(401).json({
           message: "NO AUTHORIZED nickname",
-          rocketStatus: "Very bad request nickname"
+          rabbitStatus: "Very bad request nickname"
         });
       }
       
@@ -35,7 +35,7 @@ class ResponseHandler {
       console.log("/rabbit/profile/newNickname There is no exspected props in request body.");
       res.status(400).json({
         message: "There is no exspected props in request body.",
-        rocketStatus: "Bad request"
+        rabbitStatus: "Bad request"
       });
       return;
     }
@@ -57,13 +57,13 @@ class ResponseHandler {
         if (responseFlag.status == "AUTHORIZED") {
           res.status(200).json({
             message: "Welcome to your profile dashboard",
-            rocketStatus: responseFlag.status,
+            rabbitStatus: responseFlag.status,
             user: responseFlag.user
           });
         } else {
           res.status(401).json({
             message: "NO AUTHORIZED",
-            rocketStatus: "very bad request"
+            rabbitStatus: "very bad request"
           });
         }
         
@@ -71,7 +71,7 @@ class ResponseHandler {
         console.log("/rabbit/register There is no exspected props in request body.");
         res.status(400).json({
           message: "There is no exspected props in request body.",
-          rocketStatus: "Bad request"
+          rabbitStatus: "Bad request"
         });
         return;
       }

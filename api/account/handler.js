@@ -22,7 +22,7 @@ class ResponseHandler {
       if (responseFlag.status == "USER_ALREADY_REGISTERED") {
         res.status(200).json({
           message: "You are already registred.",
-          rocketStatus: responseFlag.status,
+          rabbitStatus: responseFlag.status,
         });
       } else if (responseFlag.status == "USER_REGISTERED") {
         let emailRegBody =
@@ -48,7 +48,7 @@ class ResponseHandler {
             .then(data => {
               res.status(200).json({
                 message: "Check email for conmfirmation key.",
-                rocketStatus: "USER_REGISTERED",
+                rabbitStatus: "USER_REGISTERED",
                 email: responseFlag.email,
               });
               console.log("Email reg sended. Notify client.");
@@ -57,19 +57,17 @@ class ResponseHandler {
               console.log("Error in sending email procedure: " + error);
               res.status(201).json({
                 message: "Check email for conmfirmation key.",
-                rocketStatus: "USER_REGISTERED",
+                rabbitStatus: "USER_REGISTERED",
               });
             });
         }
       }
     } else {
-      console.log(
-        "/rocket/register There is no exspected props in request body."
-      );
+      console.log("/rocket/register There is no exspected props in request body.");
 
       res.status(400).json({
         message: "There is no exspected props in request body.",
-        rocketStatus: "bad request",
+        rabbitStatus: "bad request",
       });
       return;
     }
@@ -77,24 +75,24 @@ class ResponseHandler {
 
   async onRegValidationResponse(req, res) {
     var user = {
-      email: req.body.emailField,
-      token: req.body.tokenField,
+      email: req.body.data.userRegData.email,
+      token: req.body.data.userRegData.code,
     };
 
-    var responseFlag = await this.dataAction.regValidator(user, this);
+    var responseFlag = await this.dataAction.regValidator(user);
     // console.log("/rocket/confirmation responseFlag ", responseFlag);
 
     if (responseFlag.result !== null) {
       // console.log("/rocket/confirmation passed ", responseFlag.email);
       res.status(200).json({
         message: "Confirmation done.",
-        rocketStatus: "USER_CONFIRMED",
+        rabbitStatus: "USER_CONFIRMED",
         accessToken: responseFlag.token,
       });
     } else {
       res.status(202).json({
         message: "Wrong confirmation code.",
-        rocketStatus: "USER_NOT_CONFIRMED",
+        rabbitStatus: "USER_NOT_CONFIRMED",
       });
     }
   }
@@ -104,34 +102,33 @@ class ResponseHandler {
       console.log("Secured.");
     }
 
-    console.log("/rocket/login ", req.body);
-    if (
-      (typeof req.body.emailField !== "undefined") &
-      (typeof req.body.passwordField !== "undefined")
-    ) {
+    console.log("/rabbit/login ", req.body);
+    if ((typeof req.body.data.userLoginData.email !== "undefined") &
+      (typeof req.body.data.userLoginData.password !== "undefined")) {
+
       var user = {
-        email: req.body.emailField,
-        password: req.body.passwordField,
+        email: req.body.data.userLoginData.email,
+        password: req.body.data.userLoginData.password,
       };
 
       var responseFlag = await this.dataAction.loginUser(user, this);
-      console.log("/rocket/login => ", responseFlag);
+      console.log("/rabbit/login => ", responseFlag);
       if (responseFlag.status == "USER_LOGGED") {
         res.status(200).json({
           message: "User logged",
-          rocketStatus: responseFlag.status,
+          rabbitStatus: responseFlag.status,
           flag: responseFlag,
         });
       } else {
         res.status(300).json({
           message: "Wrong Password, wrong email or any other case.",
-          rocketStatus: "no-session",
+          rabbitStatus: "no-session",
         });
       }
     } else {
       res.status(404).json({
         message: "Waoou vauu",
-        rocketStatus: "no-session",
+        rabbitStatus: "no-session",
       });
     }
   }
@@ -163,7 +160,7 @@ class ResponseHandler {
           console.log("NICE NICE");
           res.status(200).json({
             message: "Please check your email for confirmation code.",
-            rocketStatus: "CHECK_EMAIL_FORGOT_PASSWORD_CODE",
+            rabbitStatus: "CHECK_EMAIL_FORGOT_PASSWORD_CODE",
             accessToken: responseFlag.email,
           });
         }
@@ -173,14 +170,14 @@ class ResponseHandler {
         res.status(200).json({
           message:
             "Please check your email for confirmation code. If you dont get email for 5 minute try again.",
-          rocketStatus: "CHECK_EMAIL_FORGOT_PASSWORD_CODE",
+          rabbitStatus: "CHECK_EMAIL_FORGOT_PASSWORD_CODE",
           accessToken: responseFlag.token,
         });
       });
     } else {
       res.status(202).json({
         message: "Something wrong here, man.",
-        rocketStatus: responseFlag.status,
+        rabbitStatus: responseFlag.status,
       });
     }
   }
@@ -200,13 +197,13 @@ class ResponseHandler {
         console.log("NICE NICE");
         res.status(200).json({
           message: "You setup new password for your [rabbit] account.",
-          rocketStatus: "NEW_PASSWORD_DONE",
+          rabbitStatus: "NEW_PASSWORD_DONE",
           accessToken: responseFlag.email,
         });
     } else {
       res.status(202).json({
         message: "Something wrong here, man.",
-        rocketStatus: responseFlag.status,
+        rabbitStatus: responseFlag.status,
       });
     }
   }

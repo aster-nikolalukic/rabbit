@@ -121,6 +121,7 @@ class MyDatabase {
                   var responseFromDatabaseEngine = {
                     status: "USER_REGISTERED",
                     email: user.email,
+                    token: uniqLocal
                   };
                   db.close();
                   resolve(responseFromDatabaseEngine);

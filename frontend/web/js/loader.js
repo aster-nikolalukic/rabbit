@@ -15,10 +15,10 @@ export function showLoginForm() {
     }).then((html) => {
       myInstance.root.innerHTML = html;
       byId("login-button").addEventListener("click", myInstance.loginUser, false);
-      byId("sing-up-tab").addEventListener("click", myInstance.showRegisterForm, false);
+      // byId("sing-up-tab").addEventListener("click", myInstance.showRegisterForm, false);
     }).catch(function(err) {
       console.warn("Error in showLoginForm : ", err);
-      byId("error-msg-reg").innerHTML = err;
+      byId("error-msg").innerHTML = err;
     });
 }
 
@@ -32,9 +32,9 @@ export function showRegisterForm() {
     }).then(function(html) {
       myInstance.root.innerHTML = html;
       byId("reg-button").addEventListener("click", myInstance.registerUser, false);
-      byId("sing-up-tab").addEventListener("click", myInstance.showRegisterForm, false);
+      // byId("sing-up-tab").addEventListener("click", myInstance.showRegisterForm, false);
     }).catch(function(err) {
       console.warn("Error in showLoginForm : ", err);
-      byId("error-msg-reg").innerHTML = err;
+      byId("error-msg").innerHTML = err;
     });
 }
