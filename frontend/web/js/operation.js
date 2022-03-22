@@ -1,5 +1,5 @@
 
-import { App } from '../app.js';
+import { App, showLoginRabbitBtn, showRegisterRabbitBtn } from '../app.js';
 import { validateEmail, validatePassword, byId } from './utils.js';
 import { onUserConfirmed, userRegisterConfirmation } from './responseHandler.js';
 /**
@@ -51,8 +51,14 @@ export function loginUser(e) {
     };
 
     let localMsg = {action: "LOGIN", data: {userLoginData: userData}};
-    callApi("/rabbit/login/", localMsg, (e) => {
-      console.log('WHAT IS THE RESPONSE -> ', e)
+    callApi("/rabbit/login/", localMsg, (res) => {
+      console.log('Login response -> ', e);
+      if (res.rabbitStatus == 'USER_LOGGED') {
+        showRegisterRabbitBtn.position.translateByY(110);
+        showLoginRabbitBtn.position.translateByY(110);
+        App.showLeftMenu();
+        App.showUserProfileForm(res);
+      }
     });
     localMsg = null;
 

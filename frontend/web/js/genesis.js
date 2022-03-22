@@ -1,5 +1,6 @@
 
 import { randomIntFromInterval } from './math.js';
+import { webFonts } from './standard-fonts.js';
 
 var registerAutoUpdate = [];
 
@@ -11,7 +12,7 @@ function myEngine() {
 
   setTimeout(function () {
     myEngine();
-  }, 20);
+  }, 1);
 }
 
 // run
@@ -186,6 +187,8 @@ export function rabbitElement(options, onClick) {
       color: "white",
       bgColor: "black",
       border: "solid red 1px",
+      fontFamily: webFonts.Helvetica,
+      fontSize: ' 20px'
     };
     console.info("Default options value loaded.");
   } else {
@@ -223,6 +226,12 @@ export function rabbitElement(options, onClick) {
         +"_" +
         randomIntFromInterval(1, 100000);
     }
+    if (typeof options.fontFamily === "undefined") {
+      options.fontFamily = webFonts.Helvetica;
+    }
+    if (typeof options.fontSize === "undefined") {
+      options.fontSize = ' 20px';
+    }
   }
 
   // --------------------------------------------------------------------------------
@@ -250,6 +259,8 @@ export function rabbitElement(options, onClick) {
   this.dom.style.color = options.color;
   this.dom.style.background = options.bgColor;
   this.dom.style.border = options.border;
+  this.dom.style.fontFamily = options.fontFamily;
+  this.dom.style.fontSize = options.fontSize;
 
   // CONTENT STAFF
   this.dom.innerHTML = options.content;

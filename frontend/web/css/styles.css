@@ -36,15 +36,78 @@ html, body, .container {
   transform: translateX(-50%) translateY(-50%);
 }
 
-.button {
+.container {
+  display: flex;
+  width:100%;
   background-color:  var(--primary);
   border: none;
   color: var(--therme);
-  padding: 15px 32px;
+  padding: 0;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 0;
   cursor: pointer;
+}
+
+.user-profile {
+  
+}
+
+#left-menu {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width:120px;
+}
+
+#left-menu .button {
+  width:120px;
+}
+
+.button {
+  min-width: calc(50%);
+  border: none;
+  color:  var(--therme);
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  text-shadow: 0 0 10px #FFFFFF;
+}
+
+.primary {
+  background-color: var(--therme);
+  color: black;
+  border: 2px solid var(--primary);
+}
+
+.primary:hover {
+  background-color: var(--primary);
+  color: var(--therme);
+}
+
+.error {
+  background-color: var(--therme); 
+  color: black; 
+  border: 2px solid var(--error);
+}
+
+.error:hover {
+  background-color: var(--error);
+  color: var(--therme);
+}
+
+.supertext {
+  color: #FFFFFF;
+  background: #0e8dbc;
+  text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+  color: #FFFFFF;
+  background: #0e8dbc;
 }

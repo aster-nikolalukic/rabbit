@@ -2,7 +2,9 @@
 import {rabbitElement} from './js/genesis.js';
 import {
   showLoginForm,
-  showRegisterForm
+  showRegisterForm,
+  showUserProfileForm,
+  showLeftMenu
 } from './js/loader.js';
 import {
   loginUser,
@@ -20,11 +22,14 @@ export let App = {
   },
 
   root: document.getElementById('root'),
+  leftMenu: document.getElementById('left-menu'),
   showLoginForm: showLoginForm,
   showRegisterForm: showRegisterForm,
   loginUser: loginUser,
   registerUser: registerUser,
-  confirmRegistration: confirmRegistration
+  confirmRegistration: confirmRegistration,
+  showUserProfileForm: showUserProfileForm,
+  showLeftMenu: showLeftMenu
 };
 
 ///////////////////////////////////////////
@@ -42,8 +47,8 @@ var options = {
   dimension: {width: 15, height: 5},
 };
 
-let showLoginFormDom = new rabbitElement(options, () => App.showLoginForm());
+export let showLoginRabbitBtn = new rabbitElement(options, () => App.showLoginForm());
 
 options.content = "Register form";
 options.position.y = 35;
-let showRegisterFormDom = new rabbitElement(options, () => App.showRegisterForm() );
+export let showRegisterRabbitBtn = new rabbitElement(options, () => App.showRegisterForm() );

@@ -1,8 +1,14 @@
 
+# Rabbit WebClient
+### HTML/CSS/JS VanillaJS
 
-No need for build when you work ion localhost.
+Navigate to the `frontend\web` and run:
+```
+npm i
+```
 
-No need for hosting if you use default rabbit api config:
+ - No need for build when you work on localhost.
+ - No need for hosting if you use default rabbit api config:
 
 ```js
   /**
@@ -23,4 +29,3 @@ No need for hosting if you use default rabbit api config:
     return 80;
   }
 ```
-

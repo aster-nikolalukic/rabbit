@@ -135,7 +135,8 @@ Only for final production you will need to run build command.
 
 ### Test from browser console:
 
-  From http://localhost/
+  From http://localhost/dev.html
+
 - ### Login:
 
 ```js
@@ -164,7 +165,7 @@ Prepare node modules deps.
 npm i
 ```
 
-This is classic html/js/css vanillaJS there is no builds.
+This is classic html/js/css vanillaJS there is no builds just use dev.html end point.
 This only build package for production.
 [No need for dev]
 ```
