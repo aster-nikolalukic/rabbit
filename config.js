@@ -19,16 +19,18 @@
       return;
     }
 
-    console.info(" --------------------------------------------");
-    console.info(" -> Server running under " + this.serverMode + " configuration.");
+    console.info('\x1b[36m%s\x1b[0m', " --------------------------------------------");
+    console.log('\x1b[36m%s\x1b[0m',  'RABBIT API [0.0.1] ');
+    console.info('\x1b[36m%s\x1b[0m', " --------------------------------------------");
+    console.info('\x1b[36m%s\x1b[0m', " -> Server running under " + this.serverMode + " configuration.");
     if (this.serverMode == "dev") {
-      console.info(" -> domain dev:", this.domain.dev);
+      console.info('\x1b[36m%s\x1b[0m', " -> domain dev:", this.domain.dev);
     } else if (this.serverMode == "prod") {
-      console.info(" -> domain prod:", this.domain.prod);
+      console.info('\x1b[36m%s\x1b[0m', " -> domain prod:", this.domain.prod);
     }
-    console.info(" -> protocol:", this.protocol);
-    console.info(" -> databaseName:", this.databaseName);
-    console.info(" --------------------------------------------");
+    console.info('\x1b[36m%s\x1b[0m', " -> protocol:", this.protocol);
+    console.info('\x1b[36m%s\x1b[0m', " -> databaseName:", this.databaseName);
+    console.info('\x1b[36m%s\x1b[0m', " --------------------------------------------");
   }
 
   /**

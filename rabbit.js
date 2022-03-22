@@ -7,11 +7,9 @@
  * @objective Nice for learning to use power of node.js
  */
 
-console.log("Initial params [3] => ", process.argv[3]);
-
 /**
  * @description
- * Imports
+ * Imports.
  */
 const path = require("path");
 const spdy = require("spdy");
