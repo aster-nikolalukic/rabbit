@@ -20,7 +20,7 @@
     }
 
     console.info('\x1b[36m%s\x1b[0m', " --------------------------------------------");
-    console.log('\x1b[36m%s\x1b[0m',  'RABBIT API [0.0.1] ');
+    console.info('\x1b[36m%s\x1b[0m',  'RABBIT API [0.0.1] ');
     console.info('\x1b[36m%s\x1b[0m', " --------------------------------------------");
     console.info('\x1b[36m%s\x1b[0m', " -> Server running under " + this.serverMode + " configuration.");
     if (this.serverMode == "dev") {

@@ -161,16 +161,21 @@ Project Stored at `frontend\web`.
 Run all commands from `frontend\web`.
 
 Prepare node modules deps.
-```
+```js
 npm i
 ```
 
 This is classic html/js/css vanillaJS there is no builds just use dev.html end point.
 This only build package for production.
 [No need for dev]
-```
+```js
 npm run build.web
 ```
+
+
+After login program calls user profile and preview data:
+![](https://github.com/aster-nikolalukic/rabbit/blob/main/documentation/read-from-database.png)
+
 
 ### Performance
 
